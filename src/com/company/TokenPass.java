@@ -31,12 +31,15 @@ public class TokenPass {
 
     //Distributes tokens one by one taking the tokens away from the currentPlayer
     //Starting distribution with the next player
-    //Method ends when number of tokens hits zero
 public void distributeCurrentPlayerTokens()
 {
+    //Defines the person you're taking and distributing tokens from
     currentPlayer -= 1;
      tokens = board[currentPlayer];
      board[currentPlayer] = 0;
+
+     //Checks end boundary condition and if there send the index back to the start
+    //otherwise increments currentPlayer
     if(currentPlayer == 9)
     {
         currentPlayer = 0;
@@ -44,6 +47,10 @@ public void distributeCurrentPlayerTokens()
     else {
         currentPlayer += 1;
     }
+
+    //While we have tokens, distribute tokens one by one
+    //Chceks end boundary condition
+    //Method ends when number of tokens hits zero
 if(tokens > 0) {
     for (int j = currentPlayer; j < playerCount; j++) {
         board[j] = board[j] + 1;
